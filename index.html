@@ -24,6 +24,11 @@
         margin: 0;
         font-weight: bold;
     }
+    .Apagar{
+        background-color: red;
+        border-color: red;
+    }
+
     input {
         background-color: #1C1C1C;
         color: white;
@@ -154,6 +159,7 @@
     </table>
 
     <script>
+        let contadorPedidos = 1;
         var total = 0;
     
         function calcularTotal() {
@@ -191,6 +197,7 @@
         const inputs = document.querySelectorAll('input[type="number"]');
         inputs.forEach(input => {
             input.addEventListener('input', calcularTotal);
+            console.log(contadorPedidos)
         });
     
         function limparCampos() {
@@ -204,7 +211,7 @@
             carregarPedidos();
         }
     
-        let contadorPedidos = 1;
+        
     
         function adicionarPedido() {
             const preco = document.getElementById('preco').value || total;
@@ -215,6 +222,7 @@
             contadorPedidos++;
             document.getElementById('preco').value = '';
             carregarPedidos();
+            
         }
     
         function carregarPedidos() {
@@ -222,10 +230,12 @@
             table.innerHTML = '';
             const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
             pedidos.forEach(pedido => {
+                if (!pedido.concluido){
                 const newRow = table.insertRow();
                 const cell1 = newRow.insertCell(0);
                 const cell2 = newRow.insertCell(1);
                 const cell3 = newRow.insertCell(2);
+                //const cell4 = newRow.insertCell(3);
     
                 cell1.textContent = pedido.id;
                 cell2.textContent = `R$ ${pedido.preco}`;
@@ -239,6 +249,8 @@
                 });
     
                 cell3.appendChild(checkbox);
+
+                }
             });
         }
     
@@ -246,8 +258,32 @@
             carregarPedidos();
             calcularTotal();
         };
+
+        function Apagar(id){
+            var indice = id.substring(id.lastIndexOf("_") + 1); // Extrair o índice do id
+            localStorage.removeItem(indice);
+            var botao = document.getElementById(id);
+            if (botao) {
+                var linha = botao.parentElement.parentElement;
+                if (linha) {
+                    linha.remove();
+                }
+            }
+        }
+
+        function ApagarTudo(){
+            var resposta = window.confirm("Você quer apagar TUDO?");
+            if (resposta === true) {
+                console.log("Apagado.");
+                localStorage.clear();
+                location.reload();
+            } else {
+                console.log("Cancelado.");
+            }
+        }
     </script>
     
 </div>
+<button onclick="ApagarTudo()">Apagar Dados</button>
 </body>
 </html>
