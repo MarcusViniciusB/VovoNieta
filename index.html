@@ -104,7 +104,7 @@
             Quantidade de Broa:
             <input type="number" id="quantidadeBroa" value="0">
         </label>
-	<label>
+    <label>
             Dinheiro cliente:
             <input type="number" id="valorCliente" value="0">
         </label>
@@ -172,7 +172,7 @@
             const quantidadeOutros = parseInt(document.getElementById('quantidadeOutros').value);
             const quantidadePastelFrito = parseInt(document.getElementById('quantidadePastelFrito').value);
             const outros = parseFloat(document.getElementById('Outros').value);
-	        const valorCliente = parseFloat(document.getElementById('valorCliente').value);
+            const valorCliente = parseFloat(document.getElementById('valorCliente').value);
 
             total = quantidadeCafe * precoCafe +
                           quantidadeCafeLeite * precoCafeLeite +
@@ -181,14 +181,14 @@
                           quantidadeSalgados * precoSalgados +
                           quantidadeOutros * precoOutros +
                           quantidadePastelFrito * precoPastelFrito + outros;
-	        const trocado = valorCliente - total;
+            const trocado = valorCliente - total;
 
             document.getElementById('resultado').innerText = `Total a pagar: R$ ${total.toFixed(2)}`;
-	        if ( trocado >= 0)
+            if ( trocado >= 0)
             {
-            	document.getElementById('troco').innerText = `Troco: R$ ${trocado.toFixed(2)}`;
+                document.getElementById('troco').innerText = `Troco: R$ ${trocado.toFixed(2)}`;
             } else {
-		        document.getElementById('troco').innerText = `Problema com o troco`;
+                document.getElementById('troco').innerText = `Problema com o troco`;
             }
         }
 
@@ -196,6 +196,7 @@
         inputs.forEach(input => {
             input.addEventListener('input', calcularTotal);
         });
+
         function limparCampos() {
             const inputs = document.querySelectorAll('input[type="number"]');
             inputs.forEach(input => {
@@ -203,9 +204,11 @@
             });
             document.getElementById('resultado').innerText = '';
             document.getElementById('troco').innerText = '';
+            localStorage.removeItem('pedidos');
+            carregarPedidos();
         }
+
         let contadorPedidos = 1; 
-        
 
         function adicionarPedido() {
             const preco = document.getElementById('preco').value;
@@ -216,27 +219,45 @@
             }else{
                 val = preco
             }
-            const table = document.getElementById('tabelaPedidos').getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow();
-
-            const cell1 = newRow.insertCell(0);
-            const cell2 = newRow.insertCell(1);
-            const cell3 = newRow.insertCell(2);
-
-            cell1.textContent = contadorPedidos;
-            cell2.textContent = 'R$ '+ val;
             
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.checked = false; // Inicialmente não marcado
-
-
-            cell3.appendChild(checkbox);
-
+            const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+            pedidos.push({ id: contadorPedidos, preco: val, concluido: false });
+            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            
             contadorPedidos++;
-
             document.getElementById('preco').value = '';
+            carregarPedidos();
         }
+
+        function carregarPedidos() {
+            const table = document.getElementById('tabelaPedidos').getElementsByTagName('tbody')[0];
+            table.innerHTML = '';
+            const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+            pedidos.forEach(pedido => {
+                const newRow = table.insertRow();
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3 = newRow.insertCell(2);
+
+                cell1.textContent = pedido.id;
+                cell2.textContent = 'R$ ' + pedido.preco;
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = pedido.concluido;
+                checkbox.addEventListener('change', () => {
+                    pedido.concluido = checkbox.checked;
+                    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+                });
+
+                cell3.appendChild(checkbox);
+            });
+        }
+
+        window.onload = () => {
+            carregarPedidos();
+            calcularTotal();
+        };
     </script>
 </div>
 </body>
