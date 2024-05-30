@@ -129,7 +129,7 @@
         </label>
         <label>
             Outros:
-            <input type="number" id="Outros" value="0">
+            <input id="Outros" value="0">
         </label>
         
     </div>
@@ -178,7 +178,13 @@
             const quantidadeSalgados = parseInt(document.getElementById('quantidadeSalgados').value);
             const quantidadeOutros = parseInt(document.getElementById('quantidadeOutros').value);
             const quantidadePastelFrito = parseInt(document.getElementById('quantidadePastelFrito').value);
-            const outros = parseFloat(document.getElementById('Outros').value);
+            const outros = document.getElementById('Outros').value;
+            var partes = outros.split('+');
+            var outros2 = 0;
+            partes.forEach(function (parte) {
+                outros2 += parseFloat(parte.trim());
+            });
+
             const valorCliente = parseFloat(document.getElementById('valorCliente').value);
     
             total = quantidadeCafe * precoCafe +
@@ -187,24 +193,24 @@
                     quantidadeBroa * precoBroa +
                     quantidadeSalgados * precoSalgados +
                     quantidadeOutros * precoOutros +
-                    quantidadePastelFrito * precoPastelFrito + outros;
+                    quantidadePastelFrito * precoPastelFrito + outros2;
             const troco = valorCliente - total;
     
             document.getElementById('resultado').innerText = `Total a pagar: R$ ${total.toFixed(2)}`;
             document.getElementById('troco').innerText = troco >= 0 ? `Troco: R$ ${troco.toFixed(2)}` : `Problema com o troco`;
         }
     
-        const inputs = document.querySelectorAll('input[type="number"]');
+        const inputs = document.querySelectorAll('input');
         inputs.forEach(input => {
             input.addEventListener('input', calcularTotal);
-            console.log(contadorPedidos)
         });
     
         function limparCampos() {
-            const inputs = document.querySelectorAll('input[type="number"]');
+            const inputs = document.querySelectorAll('input');
             inputs.forEach(input => {
                 input.value = '0';
             });
+            document.getElementById('preco').value = null;
             document.getElementById('resultado').innerText = '';
             document.getElementById('troco').innerText = '';
             localStorage.removeItem('pedidos');
@@ -215,12 +221,13 @@
     
         function adicionarPedido() {
             const preco = document.getElementById('preco').value || total;
+            console.log(preco)
             const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
             pedidos.push({ id: contadorPedidos, preco: parseFloat(preco).toFixed(2), concluido: false });
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
     
-            contadorPedidos++;
-            document.getElementById('preco').value = '';
+            contadorPedidos+=1;
+            document.getElementById('preco').value = null;
             carregarPedidos();
             
         }
