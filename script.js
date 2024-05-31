@@ -8,7 +8,6 @@ inputs.forEach(input => {
 
 function Quantidade(acao)
 {
-    
     var partes = acao.split('_');
     if (partes[0] == "mais")
     {
