@@ -6,6 +6,92 @@ inputs.forEach(input => {
     input.addEventListener('input', calcularTotal);
 });
 
+function Quantidade(acao)
+{
+    
+    var partes = acao.split('_');
+    if (partes[0] == "mais")
+    {
+        switch(parseInt(partes[1])){
+            case 1:
+                var val = parseInt(document.getElementById('quantidadeCafe').value);
+                val += 1;
+                document.getElementById('quantidadeCafe').value = val;
+                break;
+            case 2:
+                var val = parseInt(document.getElementById('quantidadeCafeLeite').value);
+                val += 1;
+                document.getElementById('quantidadeCafeLeite').value = val;
+                break;
+            case 3:
+                var val = parseInt(document.getElementById('quantidadePaoQueijo').value);
+                val += 1;
+                document.getElementById('quantidadePaoQueijo').value = val;
+                break;
+            case 4:
+                var val = parseInt(document.getElementById('quantidadeBroa').value);
+                val += 1;
+                document.getElementById('quantidadeBroa').value = val;  
+                break;
+            case 5:
+                var val = parseInt(document.getElementById('quantidadeSalgados').value);
+                val += 1;
+                document.getElementById('quantidadeSalgados').value = val;
+                break;
+            case 6:
+                var val = parseInt(document.getElementById('quantidadeOutros').value);
+                val += 1;
+                document.getElementById('quantidadeOutros').value = val;
+                break;
+            case 7:
+                var val = parseInt(document.getElementById('quantidadePastelFrito').value);
+                val += 1;
+                document.getElementById('quantidadePastelFrito').value = val;
+                break;
+        }
+    }else if (partes[0] == "menos")
+    {
+        switch(parseInt(partes[1]))
+        {
+            case 1:
+                var val = parseInt(document.getElementById('quantidadeCafe').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeCafe').value = val;
+                break;
+            case 2:
+                var val = parseInt(document.getElementById('quantidadeCafeLeite').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeCafeLeite').value = val;
+                break;
+            case 3:
+                var val = parseInt(document.getElementById('quantidadePaoQueijo').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadePaoQueijo').value = val;
+                break;
+            case 4:
+                var val = parseInt(document.getElementById('quantidadeBroa').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeBroa').value = val;  
+                break;
+            case 5:
+                var val = parseInt(document.getElementById('quantidadeSalgados').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeSalgados').value = val;
+                break;
+            case 6:
+                var val = parseInt(document.getElementById('quantidadeOutros').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeOutros').value = val;
+                break;
+            case 7:
+                var val = parseInt(document.getElementById('quantidadePastelFrito').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadePastelFrito').value = val;
+                break;
+        }
+    }
+    calcularTotal();
+}
 
 function calcularTotal() {
     const precoCafe = 2.00;
