@@ -27,10 +27,6 @@
             Quantidade de Broa:
             <input type="number" id="quantidadeBroa" value="0">
         </label>
-    <label>
-            Dinheiro cliente:
-            <input type="number" id="valorCliente" value="0">
-        </label>
     </div>
     <div class="form-group">
         <label>
@@ -47,8 +43,9 @@
         </label>
         <label>
             Outros:
-            <input id="Outros" value="0">
         </label>
+            <input id="Outros" value="0">
+        
         
     </div>
 <div class="pedidos">
@@ -57,6 +54,10 @@
     <p id="troco"></p>
     <h2>Adicionar Pedido</h2>
     <form id="formPedido">
+        <label>
+            Dinheiro cliente:
+            <input type="number" id="valorCliente" value="0">
+        </label>
         <label for="preco">Preço:</label>
         <input type="number" id="preco" name="preco" placeholder="0">
         <button type="button" onclick="adicionarPedido()">Adicionar</button>
@@ -77,6 +78,8 @@
     </table>
     <script src="script.js"></script>
 </div>
+<div class="footer">
 <button onclick="ApagarTudo()">Apagar Dados</button>
+</div>
 </body>
 </html>
