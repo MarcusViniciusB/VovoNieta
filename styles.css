@@ -5,48 +5,78 @@
         text-align: center;
     }
 
+    tbody{
+        background-color: #1C1C1C;
+        color: white;
+    }
+
     body {
         font-family: Arial, sans-serif;
         color: #1C1C1C;
         background-color: white;
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin: 0;
+        margin: 0px;
         font-weight: bold;
     }
     input {
-        background-color: #1C1C1C;
-        color: white;
+        background-color: #ececec;
+        color: #1C1C1C;
         display: block;
         margin-bottom: 10px;
         border: solid 1px;
-        border-color: white;
+        border-color: #adadad;
         border-radius: 10px;
         padding: 10px;
     }
     
-    .form-group {
-        width: 50%;
-        box-sizing: border-box;
-        padding: 0 10px;
+    .form-content{
+        padding-left: 5px;
     }
-    @media screen and (max-width: 768px) {
+    
+    
+    @media screen and (max-width: 880px) {
         .form-group {
             width: 100%;
+        }
+        .content{
+            display: grid;
+            grid-template-columns: auto;
+        }
+    }
+    @media (min-width: 880px) {
+        .form-content {
+            display: grid;
+            grid-template-columns: 50% auto;
+        }
+        .content{
+            display: grid;
+            grid-template-columns: 72% auto;
+        }
+        #b{  
+            position: fixed;   
+            left: 74%;
+            top: 5%;
+            color: white;
+        }
+        body{
+            background-color: #1C1C1C;
+        }
+        #a{
+            background-color: white;
         }
     }
     .header{
         width: 100%;
         text-align: left;
-        padding: 20px;
+        padding: 20px 0px ;
         text-align: center;
         background-color: #FFA214;
         color: #1C1C1C;
         margin-bottom: 1%;
     }
-    .pedidos {
+
+    .tabela {
         width: 100%;
         text-align: left;
         padding-left: 10px;
@@ -61,7 +91,7 @@
     }
 
     button{
-        padding: 9px 2%;
+        padding: 9px 5%;
         background-color: #FFA214;
         color: #1C1C1C;
         text-align: center;
