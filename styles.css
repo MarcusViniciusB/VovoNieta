@@ -70,6 +70,25 @@
             grid-template-columns: auto;
         }
     }
+
+    .More{
+        background-color: rgb(8, 116, 8);
+        border: none;
+
+    }
+
+    .Less{
+        background-color: rgb(170, 11, 11);
+        border: none;
+    }
+
+    .More, .Less{
+        padding: 5px 15px;
+        font-weight: bolder;
+        font-size: larger;
+        color: white;
+    }
+
     .header{
         width: 100%;
         text-align: left;
@@ -94,19 +113,19 @@
         padding: 20px;
     }
     button{
-            padding: 9px 5%;
-            background-color: #FFA214;
-            color: #1C1C1C;
-            text-align: center;
-            border: solid #FFA214 1px;
-            border-radius: 5px;
-            transition: 0.5s;
-        }
+        padding: 9px 5%;
+        background-color: #FFA214;
+        color: #1C1C1C;
+        text-align: center;
+        border: solid #FFA214 1px;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
     
     button:hover{
-        background-color: #81520c;
-        border-color: #81520c;
-        color: #1C1C1C;
+        background-color: rgb(0, 0, 0);
+        border-color: #000000;
+        color: #ffffff;
     }
 
     th{
