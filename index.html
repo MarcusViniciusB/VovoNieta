@@ -7,49 +7,69 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="content">
+<div id="a">
     <div class="header">
         <h1>Lanchonete Dona Cricri</h1>
     </div>
-    <div class="form-group">
-        <label>
-            Quantidade de Café:
-            <input type="number" id="quantidadeCafe" value="0">
-        </label>
-        <label>
-            Quantidade de Café com Leite:
-            <input type="number" id="quantidadeCafeLeite" value="0">
-        </label>
-        <label>
-            Quantidade de Pão de Queijo:
-            <input type="number" id="quantidadePaoQueijo" value="0">
-        </label>
-        <label>
-            Quantidade de Broa:
-            <input type="number" id="quantidadeBroa" value="0">
-        </label>
+    <div class="form-content">
+        <div class="form-group">
+            <label>
+                Quantidade de Café:
+                <input type="number" id="quantidadeCafe" value="0">
+            </label>
+            <label>
+                Quantidade de Café com Leite:
+                <input type="number" id="quantidadeCafeLeite" value="0">
+            </label>
+            <label>
+                Quantidade de Pão de Queijo:
+                <input type="number" id="quantidadePaoQueijo" value="0">
+            </label>
+            <label>
+                Quantidade de Broa:
+                <input type="number" id="quantidadeBroa" value="0">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Quantidade de Coxinha/Quibe/Hamburguer/Tortinha:
+                <input type="number" id="quantidadeSalgados" value="0">
+            </label>
+            <label>
+                Quantidade de Picolé/Empada/Pastel/Bolinho:
+                <input type="number" id="quantidadeOutros" value="0">
+            </label>
+            <label>
+                Quantidade de Pastel Frito:
+                <input type="number" id="quantidadePastelFrito" value="0">
+            </label>
+            <label>
+                Outros:
+            </label>
+                <input id="Outros" value="0">
+        </div>
     </div>
-    <div class="form-group">
-        <label>
-            Quantidade de Coxinha/Quibe/Hamburguer/Tortinha:
-            <input type="number" id="quantidadeSalgados" value="0">
-        </label>
-        <label>
-            Quantidade de Picolé/Empada/Pastel/Bolinho:
-            <input type="number" id="quantidadeOutros" value="0">
-        </label>
-        <label>
-            Quantidade de Pastel Frito:
-            <input type="number" id="quantidadePastelFrito" value="0">
-        </label>
-        <label>
-            Outros:
-        </label>
-            <input id="Outros" value="0">
-        
-        
+    <div class="tabela">
+        <h2>Lista de Pedidos</h2>
+        <table id="tabelaPedidos">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Preço</th>
+                    <th>Concluído</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os pedidos vem aq -->
+            </tbody>
+        </table>
     </div>
-<div class="pedidos">
-    <button onclick="limparCampos()">Limpar</button>
+    <div class="footer">
+        <button onclick="ApagarTudo()">Apagar Dados</button>
+    </div>
+</div>
+<div id="b">
     <p id="resultado"></p>
     <p id="troco"></p>
     <h2>Adicionar Pedido</h2>
@@ -60,26 +80,11 @@
         </label>
         <label for="preco">Preço:</label>
         <input type="number" id="preco" name="preco" placeholder="0">
-        <button type="button" onclick="adicionarPedido()">Adicionar</button>
+        
     </form>
-
-    <h2>Lista de Pedidos</h2>
-    <table id="tabelaPedidos">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Preço</th>
-                <th>Concluído</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Os pedidos vem aq -->
-        </tbody>
-    </table>
-    <script src="script.js"></script>
+    <button onclick="limparCampos()">Limpar</button> <button type="button" onclick="adicionarPedido()">Adicionar</button>
 </div>
-<div class="footer">
-<button onclick="ApagarTudo()">Apagar Dados</button>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
