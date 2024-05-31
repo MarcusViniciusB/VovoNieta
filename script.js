@@ -1,6 +1,8 @@
 let contadorPedidos = 1;
 var total = 0;
 
+console.log('SisMarcus 1.17');
+
 const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
     input.addEventListener('input', calcularTotal);
