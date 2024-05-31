@@ -1,11 +1,10 @@
-    /* Estilos para a tabela */
     table, th, td {
         border: 1px solid #000;
         border-collapse: collapse;
         padding: 8px;
+        text-align: center;
     }
 
-    /* Estilos gerais */
     body {
         font-family: Arial, sans-serif;
         color: #1C1C1C;
@@ -17,11 +16,6 @@
         margin: 0;
         font-weight: bold;
     }
-    .Apagar{
-        background-color: red;
-        border-color: red;
-    }
-
     input {
         background-color: #1C1C1C;
         color: white;
@@ -32,7 +26,7 @@
         border-radius: 10px;
         padding: 10px;
     }
-    /* Formulário e grupos de formulários */
+    
     .form-group {
         width: 50%;
         box-sizing: border-box;
@@ -52,7 +46,7 @@
         color: #1C1C1C;
         margin-bottom: 1%;
     }
-     .pedidos {
+    .pedidos {
         width: 100%;
         text-align: left;
         padding-left: 10px;
@@ -61,12 +55,13 @@
 
     .footer{
         width: 100%;
-        text-align: left;
+        text-align: center;
         padding-left: 20px;
+        padding: 20px;
     }
 
     button{
-        padding: 9px;
+        padding: 9px 2%;
         background-color: #FFA214;
         color: #1C1C1C;
         text-align: center;
@@ -78,4 +73,9 @@
         background-color: #81520c;
         border-color: #81520c;
         color: #1C1C1C;
+    }
+
+    th{
+        background-color: #FFA214;
+        font-weight: bolder;
     }
