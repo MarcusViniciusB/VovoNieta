@@ -1,12 +1,12 @@
 let contadorPedidos = 1;
 var total = 0;
 
-console.log('SisMarcus 1.17');
-
 const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
     input.addEventListener('input', calcularTotal);
 });
+
+console.log('SisMarcus 1.18');
 
 function Quantidade(acao)
 {
@@ -35,19 +35,44 @@ function Quantidade(acao)
                 document.getElementById('quantidadeBroa').value = val;  
                 break;
             case 5:
-                var val = parseInt(document.getElementById('quantidadeSalgados').value);
+                var val = parseInt(document.getElementById('quantidadeCoxinha').value);
                 val += 1;
-                document.getElementById('quantidadeSalgados').value = val;
+                document.getElementById('quantidadeCoxinha').value = val;
                 break;
             case 6:
-                var val = parseInt(document.getElementById('quantidadeOutros').value);
+                var val = parseInt(document.getElementById('quantidadeEmpada').value);
                 val += 1;
-                document.getElementById('quantidadeOutros').value = val;
+                document.getElementById('quantidadeEmpada').value = val;
                 break;
             case 7:
                 var val = parseInt(document.getElementById('quantidadePastelFrito').value);
                 val += 1;
                 document.getElementById('quantidadePastelFrito').value = val;
+                break;
+            case 8:
+                var val = parseInt(document.getElementById('quantidadePastel').value);
+                val += 1;
+                document.getElementById('quantidadePastel').value = val;
+                break;
+            case 9:
+                var val = parseInt(document.getElementById('quantidadeBolinho').value);
+                val += 1;
+                document.getElementById('quantidadeBolinho').value = val;
+                break;
+            case 10:
+                var val = parseInt(document.getElementById('quantidadeQuibe').value);
+                val += 1;
+                document.getElementById('quantidadeQuibe').value = val;
+                break;
+            case 11:
+                var val = parseInt(document.getElementById('quantidadeHamburguer').value);
+                val += 1;
+                document.getElementById('quantidadeHamburguer').value = val;
+                break;
+            case 12:
+                var val = parseInt(document.getElementById('quantidadeTortinha').value);
+                val += 1;
+                document.getElementById('quantidadeTortinha').value = val;
                 break;
         }
     }else if (partes[0] == "menos")
@@ -75,19 +100,44 @@ function Quantidade(acao)
                 document.getElementById('quantidadeBroa').value = val;  
                 break;
             case 5:
-                var val = parseInt(document.getElementById('quantidadeSalgados').value);
+                var val = parseInt(document.getElementById('quantidadeCoxinha').value);
                 if(val > 0){ val -= 1;}
-                document.getElementById('quantidadeSalgados').value = val;
+                document.getElementById('quantidadeCoxinha').value = val;
                 break;
             case 6:
-                var val = parseInt(document.getElementById('quantidadeOutros').value);
+                var val = parseInt(document.getElementById('quantidadeEmpada').value);
                 if(val > 0){ val -= 1;}
-                document.getElementById('quantidadeOutros').value = val;
+                document.getElementById('quantidadeEmpada').value = val;
                 break;
             case 7:
                 var val = parseInt(document.getElementById('quantidadePastelFrito').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadePastelFrito').value = val;
+                break;
+            case 8:
+                var val = parseInt(document.getElementById('quantidadePastel').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadePastel').value = val;
+                break;
+            case 9:
+                var val = parseInt(document.getElementById('quantidadeBolinho').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeBolinho').value = val;
+                break;
+            case 10:
+                var val = parseInt(document.getElementById('quantidadeQuibe').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeQuibe').value = val;
+                break;
+            case 11:
+                var val = parseInt(document.getElementById('quantidadeHamburguer').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeHamburguer').value = val;
+                break;
+            case 12:
+                var val = parseInt(document.getElementById('quantidadeTortinha').value);
+                if(val > 0){ val -= 1;}
+                document.getElementById('quantidadeTortinha').value = val;
                 break;
         }
     }
@@ -107,9 +157,14 @@ function calcularTotal() {
     const quantidadeCafeLeite = parseInt(document.getElementById('quantidadeCafeLeite').value);
     const quantidadePaoQueijo = parseInt(document.getElementById('quantidadePaoQueijo').value);
     const quantidadeBroa = parseInt(document.getElementById('quantidadeBroa').value);
-    const quantidadeSalgados = parseInt(document.getElementById('quantidadeSalgados').value);
-    const quantidadeOutros = parseInt(document.getElementById('quantidadeOutros').value);
+    const quantidadeCoxinha = parseInt(document.getElementById('quantidadeCoxinha').value);
+    const quantidadeTortinha = parseInt(document.getElementById('quantidadeTortinha').value);
+    const quantidadeEmpada = parseInt(document.getElementById('quantidadeEmpada').value);
     const quantidadePastelFrito = parseInt(document.getElementById('quantidadePastelFrito').value);
+    const quantidadePastel = parseInt(document.getElementById('quantidadePastel').value);
+    const quantidadeBolinho = parseInt(document.getElementById('quantidadeBolinho').value);
+    const quantidadeQuibe = parseInt(document.getElementById('quantidadeQuibe').value);
+    const quantidadeHamburguer = parseInt(document.getElementById('quantidadeHamburguer').value);
 
     const outros = document.getElementById('Outros').value;
     var partes = outros.split('+');
@@ -120,12 +175,17 @@ function calcularTotal() {
 
     const valorCliente = parseFloat(document.getElementById('valorCliente').value);
 
-    total = quantidadeCafe * precoCafe +
-            quantidadeCafeLeite * precoCafeLeite +
-            quantidadePaoQueijo * precoPaoQueijo +
-            quantidadeBroa * precoBroa +
-            quantidadeSalgados * precoSalgados +
-            quantidadeOutros * precoOutros +
+    total = quantidadeCafe        * precoCafe +
+            quantidadeCoxinha     * precoSalgados +
+            quantidadeQuibe       * precoSalgados +
+            quantidadeHamburguer  * precoSalgados +
+            quantidadeTortinha    * precoSalgados +
+            quantidadeCafeLeite   * precoCafeLeite +
+            quantidadePaoQueijo   * precoPaoQueijo +
+            quantidadeBroa        * precoBroa +
+            quantidadeEmpada      * precoOutros +
+            quantidadePastel      * precoOutros +
+            quantidadeBolinho      * precoOutros +
             quantidadePastelFrito * precoPastelFrito + outros2;
     const troco = valorCliente - total;
 
