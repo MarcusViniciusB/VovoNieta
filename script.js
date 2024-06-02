@@ -28,77 +28,78 @@ function removeLista(ordem){
 function Quantidade(acao)
 {
     var partes = acao.split('_');
+    var val = 0;
     if (partes[0] == "mais")
     {
         switch(parseInt(partes[1])){
             case 1:
-                var val = parseInt(document.getElementById('quantidadeCafe').value);
+                 val = parseInt(document.getElementById('quantidadeCafe').value);
                 val += 1;
                 document.getElementById('quantidadeCafe').value = val;
                 AdicionaLista('cafe')
                 break;
             case 2:
-                var val = parseInt(document.getElementById('quantidadeCafeLeite').value);
+                 val = parseInt(document.getElementById('quantidadeCafeLeite').value);
                 val += 1;
                 document.getElementById('quantidadeCafeLeite').value = val;
                 AdicionaLista('cafe c/ leite')
                 break;
             case 3:
-                var val = parseInt(document.getElementById('quantidadePaoQueijo').value);
+                 val = parseInt(document.getElementById('quantidadePaoQueijo').value);
                 val += 1;
                 document.getElementById('quantidadePaoQueijo').value = val;
                 AdicionaLista('pao de queijo')
                 break;
             case 4:
-                var val = parseInt(document.getElementById('quantidadeBroa').value);
+                 val = parseInt(document.getElementById('quantidadeBroa').value);
                 val += 1;
                 document.getElementById('quantidadeBroa').value = val;  
                 AdicionaLista('broa')
                 break;
             case 5:
-                var val = parseInt(document.getElementById('quantidadeCoxinha').value);
+                 val = parseInt(document.getElementById('quantidadeCoxinha').value);
                 val += 1;
                 document.getElementById('quantidadeCoxinha').value = val;
                 AdicionaLista('coxinha')
                 break;
             case 6:
-                var val = parseInt(document.getElementById('quantidadeEmpada').value);
+                 val = parseInt(document.getElementById('quantidadeEmpada').value);
                 val += 1;
                 document.getElementById('quantidadeEmpada').value = val;
                 AdicionaLista('empada')
                 break;
             case 7:
-                var val = parseInt(document.getElementById('quantidadePastelFrito').value);
+                 val = parseInt(document.getElementById('quantidadePastelFrito').value);
                 val += 1;
                 document.getElementById('quantidadePastelFrito').value = val;
                 AdicionaLista('pastel frito')
                 break;
             case 8:
-                var val = parseInt(document.getElementById('quantidadePastel').value);
+                 val = parseInt(document.getElementById('quantidadePastel').value);
                 val += 1;
                 document.getElementById('quantidadePastel').value = val;
                 AdicionaLista('pastel')
                 break;
             case 9:
-                var val = parseInt(document.getElementById('quantidadeBolinho').value);
+                 val = parseInt(document.getElementById('quantidadeBolinho').value);
                 val += 1;
                 document.getElementById('quantidadeBolinho').value = val;
                 AdicionaLista('bolinho')
                 break;
             case 10:
-                var val = parseInt(document.getElementById('quantidadeQuibe').value);
+                 val = parseInt(document.getElementById('quantidadeQuibe').value);
                 val += 1;
                 document.getElementById('quantidadeQuibe').value = val;
                 AdicionaLista('quibe')
                 break;
             case 11:
-                var val = parseInt(document.getElementById('quantidadeHamburguer').value);
+                 val = parseInt(document.getElementById('quantidadeHamburguer').value);
                 val += 1;
                 document.getElementById('quantidadeHamburguer').value = val;
                 AdicionaLista('hamburguer')
                 break;
             case 12:
-                var val = parseInt(document.getElementById('quantidadeTortinha').value);
+                 val = parseInt(document.getElementById('quantidadeTortinha').value);
                 val += 1;
                 document.getElementById('quantidadeTortinha').value = val;
                 AdicionaLista('tortinha')
@@ -109,73 +110,73 @@ function Quantidade(acao)
         switch(parseInt(partes[1]))
         {
             case 1:
-                var val = parseInt(document.getElementById('quantidadeCafe').value);
+                 val = parseInt(document.getElementById('quantidadeCafe').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeCafe').value = val;
                 removeLista('cafe')
                 break;
             case 2:
-                var val = parseInt(document.getElementById('quantidadeCafeLeite').value);
+                 val = parseInt(document.getElementById('quantidadeCafeLeite').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeCafeLeite').value = val;
                 removeLista('cafe c/ leite')
                 break;
             case 3:
-                var val = parseInt(document.getElementById('quantidadePaoQueijo').value);
+                 val = parseInt(document.getElementById('quantidadePaoQueijo').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadePaoQueijo').value = val;
                 removeLista('pao de queijo')
                 break;
             case 4:
-                var val = parseInt(document.getElementById('quantidadeBroa').value);
+                 val = parseInt(document.getElementById('quantidadeBroa').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeBroa').value = val;  
                 removeLista('broa')
                 break;
             case 5:
-                var val = parseInt(document.getElementById('quantidadeCoxinha').value);
+                 val = parseInt(document.getElementById('quantidadeCoxinha').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeCoxinha').value = val;
                 removeLista('coxinha')
                 break;
             case 6:
-                var val = parseInt(document.getElementById('quantidadeEmpada').value);
+                 val = parseInt(document.getElementById('quantidadeEmpada').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeEmpada').value = val;
                 removeLista('empada')
                 break;
             case 7:
-                var val = parseInt(document.getElementById('quantidadePastelFrito').value);
+                 val = parseInt(document.getElementById('quantidadePastelFrito').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadePastelFrito').value = val;
                 removeLista('pastel frito')
                 break;
             case 8:
-                var val = parseInt(document.getElementById('quantidadePastel').value);
+                 val = parseInt(document.getElementById('quantidadePastel').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadePastel').value = val;
                 removeLista('pastel')
                 break;
             case 9:
-                var val = parseInt(document.getElementById('quantidadeBolinho').value);
+                 val = parseInt(document.getElementById('quantidadeBolinho').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeBolinho').value = val;
                 removeLista('bolinho')
                 break;
             case 10:
-                var val = parseInt(document.getElementById('quantidadeQuibe').value);
+                 val = parseInt(document.getElementById('quantidadeQuibe').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeQuibe').value = val;
                 removeLista('quibe')
                 break;
             case 11:
-                var val = parseInt(document.getElementById('quantidadeHamburguer').value);
+                 val = parseInt(document.getElementById('quantidadeHamburguer').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeHamburguer').value = val;
                 removeLista('hamburguer')
                 break;
             case 12:
-                var val = parseInt(document.getElementById('quantidadeTortinha').value);
+                 val = parseInt(document.getElementById('quantidadeTortinha').value);
                 if(val > 0){ val -= 1;}
                 document.getElementById('quantidadeTortinha').value = val;
                 removeLista('tortinha')
@@ -255,19 +256,24 @@ function limparCampos() {
 
 
 function adicionarPedido() {
-    const preco = document.getElementById('preco').value || total;
-    const Infopedido = document.getElementById('Pedidos').value || "";
-    const cliente = document.getElementById('Cliente').value || "";
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    if(total > 0)
+    {
+        const preco = document.getElementById('preco').value || total;
+        const Infopedido = document.getElementById('Pedidos').value || "";
+        const cliente = document.getElementById('Cliente').value || "";
+        const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
 
-    pedidos.push({ id: contadorPedidos, preco: parseFloat(preco).toFixed(2), concluido: false , Info: Infopedido, Cliente: cliente});
-    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+        pedidos.push({ id: contadorPedidos, preco: parseFloat(preco).toFixed(2), concluido: false , Info: Infopedido, Cliente: cliente});
+        localStorage.setItem('pedidos', JSON.stringify(pedidos));
 
-    contadorPedidos+=1;
-    document.getElementById('preco').value = null;
+        contadorPedidos+=1;
+        document.getElementById('preco').value = null;
 
-    carregarPedidos();
-    limparCampos();
+        carregarPedidos();
+        limparCampos();
+    }else{
+        window.alert("Esta sem preço!");
+    }
 }
 
 function carregarPedidos() {
@@ -286,6 +292,7 @@ function carregarPedidos() {
         cell1.textContent = pedido.id;
         cell2.textContent = `R$ ${pedido.preco}`;
         cell4.textContent = pedido.Info;
+        cell4.className = 'test';
         cell5.textContent = pedido.Cliente;
 
         const checkbox = document.createElement('input');
