@@ -14,6 +14,11 @@ tbody {
     color: white;
 }
 
+th:nth-child(4), td:nth-child(4) {
+    max-width: 200px;
+    overflow:auto;
+}
+
 body {
     font-family: Arial, sans-serif;
     color: #1C1C1C;
