@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lanchonete</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles2.css">
 </head>
 <body>
 <div class="content">
@@ -15,60 +15,98 @@
     <div class="form-content">
         <div class="form-group">
             <label>
-                Quantidade de Café:
-            </label>
-                <input type="number" id="quantidadeCafe" value="0">
+                Café:<br>
+            
+                <input type="number" class="Quantidade" id="quantidadeCafe" value="0">
                 <button class="More" id = "mais_1" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_1" onclick="Quantidade(this.id)"> -</button>
+            </label>
             <br><br>
             <label>
-                Quantidade de Café com Leite:
+                Café com Leite:<br>
             </label>
-                <input type="number" id="quantidadeCafeLeite" value="0">
+                <input type="number" class="Quantidade"  id="quantidadeCafeLeite" value="0">
                 <button class="More" id = "mais_2" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_2" onclick="Quantidade(this.id)"> -</button>
                 <br><br>
             <label>
-                Quantidade de Pão de Queijo:
-                <input type="number" id="quantidadePaoQueijo" value="0">
+                Pão de Queijo:<br>
+                <input type="number" class="Quantidade"  id="quantidadePaoQueijo" value="0">
                 <button class="More" id = "mais_3" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_3" onclick="Quantidade(this.id)"> -</button>
             </label>
             <br><br>
             <label>
-                Quantidade de Broa:
-                <input type="number" id="quantidadeBroa" value="0">
+                Broa:<br>
+                <input type="number" class="Quantidade"  id="quantidadeBroa" value="0">
                 <button class="More" id = "mais_4" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_4" onclick="Quantidade(this.id)"> -</button>
                 <br><br>
             </label>
-        </div>
-        <div class="form-group">
             <label>
-                Quantidade de Coxinha/Quibe/Hamburguer/Tortinha:
-                <input type="number" id="quantidadeSalgados" value="0">
+                Coxinha:<br>
+                <input type="number" class="Quantidade"  id="quantidadeCoxinha" value="0">
                 <button class="More" id = "mais_5" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_5" onclick="Quantidade(this.id)"> -</button>
                 <br><br>
             </label>
             <label>
-                Quantidade de Empada/Pastel/Bolinho:
-                <input type="number" id="quantidadeOutros" value="0">
-                <button class="More" id = "mais_6" onclick="Quantidade(this.id)">+</button>
+                Empada:<br>
+                <input type="number" class="Quantidade"  id="quantidadeEmpada" value="0">
+                <button class="More" class="Quantidade"  id = "mais_6" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_6" onclick="Quantidade(this.id)"> -</button>
                 <br><br>
             </label>
             <label>
-                Quantidade de Pastel Frito:
-                <input type="number" id="quantidadePastelFrito" value="0">
+                Outros:<br>
+            </label>
+                <input id="Outros" class="Quantidade"  value="0">
+        </div>
+
+        <div class="form-group">
+            
+            <label>
+                Pastel Frito:<br>
+                <input type="number" class="Quantidade"  id="quantidadePastelFrito" value="0">
                 <button class="More" id = "mais_7" onclick="Quantidade(this.id)">+</button>
                 <button class="Less" id = "menos_7" onclick="Quantidade(this.id)"> -</button>
                 <br><br>
             </label>
             <label>
-                Outros:
+                Pastel:<br>
+                <input type="number" class="Quantidade"  id="quantidadePastel" value="0">
+                <button class="More" id = "mais_8" onclick="Quantidade(this.id)">+</button>
+                <button class="Less" id = "menos_8" onclick="Quantidade(this.id)"> -</button>
+                <br><br>
             </label>
-                <input id="Outros" value="0">
+            <label>
+                Bolinho:<br>
+                <input type="number" class="Quantidade"  id="quantidadeBolinho" value="0">
+                <button class="More" id = "mais_9" onclick="Quantidade(this.id)">+</button>
+                <button class="Less" id = "menos_9" onclick="Quantidade(this.id)"> -</button>
+                <br><br>
+            </label>
+            <label>
+                Quibe:<br>
+                <input type="number" class="Quantidade"  id="quantidadeQuibe" value="0">
+                <button class="More" id = "mais_10" onclick="Quantidade(this.id)">+</button>
+                <button class="Less" id = "menos_10" onclick="Quantidade(this.id)"> -</button>
+                <br><br>
+            </label>
+            <label>
+                Hamburguer: <br>
+                <input type="number" class="Quantidade"  id="quantidadeHamburguer" value="0">
+                <button class="More" id = "mais_11" onclick="Quantidade(this.id)">+</button>
+                <button class="Less" id = "menos_11" onclick="Quantidade(this.id)"> -</button>
+                <br><br>
+            </label>
+            <label>
+                Tortinha:<br>
+                <input type="number" class="Quantidade"  id="quantidadeTortinha" value="0">
+                <button class="More" id = "mais_12" onclick="Quantidade(this.id)">+</button>
+                <button class="Less" id = "menos_12" onclick="Quantidade(this.id)"> -</button>
+                <br><br>
+            </label>
         </div>
     </div>
     <div class="tabela">
@@ -109,6 +147,6 @@
         
     </div>
 </div>
-<script src="script.js"></script>
+<script src="script2.js"></script>
 </body>
 </html>
