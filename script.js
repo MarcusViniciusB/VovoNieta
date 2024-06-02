@@ -2,6 +2,10 @@ let contadorPedidos = 1;
 var total = 0;
 var pedidosList = [];
 
+if(document.getElementById("Ver").checked){
+    carregarPedidos();
+}
+
 const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
     input.addEventListener('input', calcularTotal);
@@ -15,9 +19,9 @@ function AdicionaLista(ordem)
 }
 
 function removeLista(ordem){
-    var index = pedidosList.indexOf(ordem); // Encontra o índice do item na lista
+    var index = pedidosList.indexOf(ordem);
     if (index !== -1) {
-        pedidosList.splice(index, 1); // Remove o item da lista
+        pedidosList.splice(index, 1);
         console.log("Item removido:", ordem);
     } else {
         console.log("Item não encontrado na lista:", ordem);
@@ -247,9 +251,10 @@ function limparCampos() {
     document.getElementById('preco').value = null;
     document.getElementById('resultado').innerText = '';
     document.getElementById('troco').innerText = '';
-    document.getElementById('Pedidos').innerText = '';
-    document.getElementById('Cliente').value = '';
     pedidosList = [];
+    document.getElementById('Pedidos').innerText = pedidosList;
+    document.getElementById('Cliente').value = '';
+    
     carregarPedidos();
 }
 
@@ -280,31 +285,52 @@ function carregarPedidos() {
     const table = document.getElementById('tabelaPedidos').getElementsByTagName('tbody')[0];
     table.innerHTML = '';
     const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    var ver = document.getElementById("Ver");
     pedidos.forEach(pedido => {
-        if (!pedido.concluido){
         const newRow = table.insertRow();
         const cell1 = newRow.insertCell(0);
         const cell2 = newRow.insertCell(1);
         const cell3 = newRow.insertCell(2);
         const cell4 = newRow.insertCell(3);
         const cell5 = newRow.insertCell(4);
+        if (!ver.checked)
+        {
+            if (!pedido.concluido){
+                
+                cell1.textContent = pedido.id;
+                cell2.textContent = `R$ ${pedido.preco}`;
+                cell4.textContent = pedido.Info;
+                cell4.className = 'test';
+                cell5.textContent = pedido.Cliente;
 
-        cell1.textContent = pedido.id;
-        cell2.textContent = `R$ ${pedido.preco}`;
-        cell4.textContent = pedido.Info;
-        cell4.className = 'test';
-        cell5.textContent = pedido.Cliente;
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = pedido.concluido;
+                checkbox.addEventListener('change', () => {
+                    pedido.concluido = checkbox.checked;
+                    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+                });
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = pedido.concluido;
-        checkbox.addEventListener('change', () => {
-            pedido.concluido = checkbox.checked;
-            localStorage.setItem('pedidos', JSON.stringify(pedidos));
-        });
+                cell3.appendChild(checkbox);
 
-        cell3.appendChild(checkbox);
+            }
+        }else{
+              
+                cell1.textContent = pedido.id;
+                cell2.textContent = `R$ ${pedido.preco}`;
+                cell4.textContent = pedido.Info;
+                cell4.className = 'test';
+                cell5.textContent = pedido.Cliente;
 
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = pedido.concluido;
+                checkbox.addEventListener('change', () => {
+                    pedido.concluido = checkbox.checked;
+                    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+                });
+
+                cell3.appendChild(checkbox);
         }
     });
 }
