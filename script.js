@@ -287,16 +287,16 @@ function carregarPedidos() {
     const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
     var ver = document.getElementById("Ver");
     pedidos.forEach(pedido => {
-        const newRow = table.insertRow();
-        const cell1 = newRow.insertCell(0);
-        const cell2 = newRow.insertCell(1);
-        const cell3 = newRow.insertCell(2);
-        const cell4 = newRow.insertCell(3);
-        const cell5 = newRow.insertCell(4);
+        
         if (!ver.checked)
         {
             if (!pedido.concluido){
-                
+                const newRow = table.insertRow();
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3 = newRow.insertCell(2);
+                const cell4 = newRow.insertCell(3);
+                const cell5 = newRow.insertCell(4);
                 cell1.textContent = pedido.id;
                 cell2.textContent = `R$ ${pedido.preco}`;
                 cell4.textContent = pedido.Info;
@@ -315,7 +315,12 @@ function carregarPedidos() {
 
             }
         }else{
-              
+                const newRow = table.insertRow();
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3 = newRow.insertCell(2);
+                const cell4 = newRow.insertCell(3);
+                const cell5 = newRow.insertCell(4);
                 cell1.textContent = pedido.id;
                 cell2.textContent = `R$ ${pedido.preco}`;
                 cell4.textContent = pedido.Info;
