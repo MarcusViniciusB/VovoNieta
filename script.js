@@ -9,7 +9,10 @@ if(document.getElementById("Ver").checked){
 
 const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
-    input.addEventListener('input', calcularTotal);
+    if (input.id != 'Outros')
+        input.addEventListener('input', calcularTotal(0));
+    else
+        input.addEventListener('input', calcularTotal(1));
 });
 
 console.log('SisMarcus 1.18');
@@ -190,10 +193,13 @@ function Quantidade(acao)
                 break;
         }
     }
-    calcularTotal();
+    calcularTotal(0);
 }
 
-function calcularTotal() {
+function calcularTotal(ordem) {
+
+    //  var pedidosAntigos = document.getElementById('Pedidos').value;
+    //  pedidosAntigos = pedidosAntigos.split(',');
 
     const precoCafe = 2.00;
     const precoCafeLeite = 3.00;
@@ -244,7 +250,8 @@ function calcularTotal() {
 
     document.getElementById('resultado').innerText = `Total a pagar: R$ ${total.toFixed(2)}`;
     document.getElementById('troco').innerText = troco >= 0 ? `Troco: R$ ${troco.toFixed(2)}` : `Problema com o troco`;
-    document.getElementById('Pedidos').value = pedidosList;
+    if (ordem == 0)
+        document.getElementById('Pedidos').value = pedidosList;
 
 }
 
@@ -265,15 +272,14 @@ function limparCampos() {
 
 function adicionarPedido() {
     const outros = document.getElementById('Outros').value || 0;
-    const val = outros.split('+');
+    const vr = outros.split('+');
     var partes = 0;
 
     const itensAMais = document.getElementById('Pedidos').value;
     const partes2 =  itensAMais.split(',');
 
-    console.log('Tamanho de partes2:', partes2.length, ' ----- partes 1: ', partes.length, '----- itens: ', itens );
-    if (val[0] != 0){
-        partes = val.length
+    if (vr[0] != 0){
+        partes = vr.length
     }
 
     if(total > 0 && partes + itens == partes2.length )
