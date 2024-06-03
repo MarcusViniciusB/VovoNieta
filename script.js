@@ -15,7 +15,7 @@ inputs.forEach(input => {
         input.addEventListener('input', calcularTotal(1));
 });
 
-console.log('SisMarcus 1.18');
+console.log('SisMarcus 1.22');
 
 function AdicionaLista(ordem)
 {
@@ -197,9 +197,6 @@ function Quantidade(acao)
 }
 
 function calcularTotal(ordem) {
-
-    //  var pedidosAntigos = document.getElementById('Pedidos').value;
-    //  pedidosAntigos = pedidosAntigos.split(',');
 
     const precoCafe = 2.00;
     const precoCafeLeite = 3.00;
