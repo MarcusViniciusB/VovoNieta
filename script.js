@@ -1,6 +1,7 @@
 let contadorPedidos = 1;
 var total = 0;
 var pedidosList = [];
+var itens = 0
 
 if(document.getElementById("Ver").checked){
     carregarPedidos();
@@ -15,12 +16,14 @@ console.log('SisMarcus 1.18');
 
 function AdicionaLista(ordem)
 {
-    pedidosList.push(ordem)
+    pedidosList.push(ordem);
+    itens += 1;
 }
 
 function removeLista(ordem){
     var index = pedidosList.indexOf(ordem);
     if (index !== -1) {
+        itens -= 1;
         pedidosList.splice(index, 1);
         console.log("Item removido:", ordem);
     } else {
@@ -214,7 +217,8 @@ function calcularTotal() {
     const quantidadeHamburguer = parseInt(document.getElementById('quantidadeHamburguer').value);
 
     const outros = document.getElementById('Outros').value;
-    var partes = outros.split('+');
+    const partes = outros.split('+');
+    
     var outros2 = 0;
     partes.forEach(function (parte) {
         outros2 += parseFloat(parte.trim());
@@ -222,25 +226,26 @@ function calcularTotal() {
 
     const valorCliente = parseFloat(document.getElementById('valorCliente').value);
 
-    total = quantidadeCafe        * precoCafe +
-            quantidadeCoxinha     * precoSalgados +
-            quantidadeQuibe       * precoSalgados +
-            quantidadeHamburguer  * precoSalgados +
-            quantidadeTortinha    * precoSalgados +
-            quantidadeCafeLeite   * precoCafeLeite +
-            quantidadePaoQueijo   * precoPaoQueijo +
-            quantidadeBroa        * precoBroa +
-            quantidadeEmpada      * precoOutros +
-            quantidadePastel      * precoOutros +
-            quantidadeBolinho      * precoOutros +
-            quantidadePastelFrito * precoPastelFrito + outros2;
+    total = quantidadeCafe        * precoCafe        +
+            quantidadeCoxinha     * precoSalgados    +
+            quantidadeQuibe       * precoSalgados    +
+            quantidadeHamburguer  * precoSalgados    +
+            quantidadeTortinha    * precoSalgados    +
+            quantidadeCafeLeite   * precoCafeLeite   +
+            quantidadePaoQueijo   * precoPaoQueijo   +
+            quantidadeBroa        * precoBroa        +
+            quantidadeEmpada      * precoOutros      +
+            quantidadePastel      * precoOutros      +
+            quantidadeBolinho     * precoOutros      +
+            quantidadePastelFrito * precoPastelFrito +
+            outros2;
+
     const troco = valorCliente - total;
 
     document.getElementById('resultado').innerText = `Total a pagar: R$ ${total.toFixed(2)}`;
     document.getElementById('troco').innerText = troco >= 0 ? `Troco: R$ ${troco.toFixed(2)}` : `Problema com o troco`;
-    
-    document.getElementById('Pedidos').innerText = pedidosList;
-    console.log(pedidosList)
+    document.getElementById('Pedidos').value = pedidosList;
+
 }
 
 function limparCampos() {
@@ -249,19 +254,29 @@ function limparCampos() {
         input.value = '0';
     });
     document.getElementById('preco').value = null;
-    document.getElementById('resultado').innerText = '';
-    document.getElementById('troco').innerText = '';
+    document.getElementById('resultado').innerText = "Total a pagar: R$ 0.00";
+    document.getElementById('troco').innerText = 'Troco: R$ 0.00';
     pedidosList = [];
-    document.getElementById('Pedidos').innerText = pedidosList;
-    document.getElementById('Cliente').value = '';
-    
+    document.getElementById('Pedidos').value = null;
+    document.getElementById('Cliente').value = null;
+    itens = 0;
     carregarPedidos();
 }
 
-
-
 function adicionarPedido() {
-    if(total > 0)
+    const outros = document.getElementById('Outros').value || 0;
+    const val = outros.split('+');
+    var partes = 0;
+
+    const itensAMais = document.getElementById('Pedidos').value;
+    const partes2 =  itensAMais.split(',');
+
+    console.log('Tamanho de partes2:', partes2.length, ' ----- partes 1: ', partes.length, '----- itens: ', itens );
+    if (val[0] != 0){
+        partes = val.length
+    }
+
+    if(total > 0 && partes + itens == partes2.length )
     {
         const preco = document.getElementById('preco').value || total;
         const Infopedido = document.getElementById('Pedidos').value || "";
@@ -271,7 +286,7 @@ function adicionarPedido() {
         pedidos.push({ id: contadorPedidos, preco: parseFloat(preco).toFixed(2), concluido: false , Info: Infopedido, Cliente: cliente});
         localStorage.setItem('pedidos', JSON.stringify(pedidos));
 
-        contadorPedidos+=1;
+        contadorPedidos +=1 ;
         document.getElementById('preco').value = null;
 
         carregarPedidos();
@@ -321,6 +336,7 @@ function carregarPedidos() {
                 const cell3 = newRow.insertCell(2);
                 const cell4 = newRow.insertCell(3);
                 const cell5 = newRow.insertCell(4);
+
                 cell1.textContent = pedido.id;
                 cell2.textContent = `R$ ${pedido.preco}`;
                 cell4.textContent = pedido.Info;
